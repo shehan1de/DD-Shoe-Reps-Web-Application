@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Customer Dashboard";
+    @Styles.Render("~/Content/dashboard.css")
+    string userName = Session["UserName"] as string;
+}
+
+<div class="header-container">
+    <div class="welcome-message">
+        <h2 class="heading">Welcome @userName</h2>
+    </div>
+
+    <div class="button">
+        <p>
+            <a href="@Url.Action("Logout", "Home")" class="btn btn-primary btn-lg">Logout</a>
+        </p>
+    </div>
+</div>
+<p class="dashboard-subheading">Optimizing Efficiency and Customer Experience</p>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-md-4 manage-box order-product" style="width:350px; height:350px; margin-left:100px; margin-right:20px;">
+            <a href="@Url.Action("ViewList", "BranchProduct")">
+                <div class="manage-text">
+                    <h2>Outlet Products</h2>
+                    <p>Discover Exclusive Finds at Our Outlet</p>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="col-md-4 manage-box sell-product" style="width:350px; height:350px; margin-left:220px; margin-right:20px;">
+            <a href="@Url.Action("ViewList", "SellProduct")">
+                <div class="manage-text">
+                    <h2>Delivery Products</h2>
+                    <p>Efficient Delivery for Your Convenience</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+
+    <script>
+                $(function () {
+                    var successMessage = '@TempData["SuccessMessage"]';
+                    if (successMessage !== '') {
+                        alertify.success(successMessage);
+                    }
+                });
+    </script>
+}

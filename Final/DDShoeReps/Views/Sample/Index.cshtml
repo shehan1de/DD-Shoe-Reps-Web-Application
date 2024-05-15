@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DDShoeReps.Models.sampleModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Stock Orders</title>
+</head>
+<body>
+    <h2>Stock Orders</h2>
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>User ID</th>
+               
+                <!-- Add other columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>Rs. @order.OrderID</td>
+                    <td>@order.UserID </td>
+                    
+                    <!-- Add other cells as needed -->
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

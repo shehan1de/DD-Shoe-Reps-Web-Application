@@ -1,0 +1,83 @@
+﻿@model DDShoeReps.Models.mvcSellProductModel
+
+@{
+    ViewBag.Title = "AddOrEdit";
+}
+<div class="container">
+    <div class="form-body">
+        @using (Html.BeginForm("AddOrEdit", "SellProduct", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+        <div>
+            @Html.HiddenFor(model => model.ProductID)
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.ProductName, "Product Name", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.ProductDescription, "Product Description", htmlAttributes: new { @class = "col-md-2 col-form-label text-md-right" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProductDescription, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProductDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.ProductPrice, "Product Price (Rs.) ", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProductPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.AvailableQuantity, "Product Quantity", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AvailableQuantity, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AvailableQuantity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @if (!string.IsNullOrEmpty(Model.ProductImage))
+            {
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label text-md-right">Image</label>
+                    <div class="col-md-10">
+                        <img src="~/image/@Model.ProductImage" alt="Existing Image" width="100" height="100" />
+                    </div>
+                </div>
+            }
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.ProductImage, "Product Image", htmlAttributes: new { @class = "col-md-2 col-form-label text-md-right" })
+                <div class="col-md-10">
+                    <input type="file" name="postedFile" id="postedFile" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.ProductImage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.ProductImage))
+            {
+                @Html.HiddenFor(model => model.ProductImage)
+            }
+
+            <div class="form-group row">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-default">Reset</button>
+                </div>
+            </div>
+        </div>
+        }
+        <div class="form-group" style="margin-left:200px;">
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</div>
+@section script{
+    @Scripts.Render("~/bundles/jqueryval");
+}
+

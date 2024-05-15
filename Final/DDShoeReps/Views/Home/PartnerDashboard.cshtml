@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "PartnerDashboard";
+    @Styles.Render("~/Content/dashboard.css")
+    string userName = Session["UserName"] as string;
+}
+
+
+<div class="header-container">
+    <div class="welcome-message">
+        <h2 class="heading">Welcome Back @userName </h2>
+    </div>
+
+    <div class="button">
+        <p>
+            <a href="@Url.Action("Logout", "Home")" class="btn btn-primary btn-lg">Logout</a>
+        </p>
+    </div>
+</div>
+<p class="dashboard-subheading">Elevate Collaboration with Our Partner Dashboard</p>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-md-4 manage-box order-productP" style="width:350px; height:350px; margin-left:100px; margin-right:20px;">
+            <a href="@Url.Action("ViewStock", "Stock")">
+                <div class="manage-text">
+                    <h2>Order Products</h2>
+                    <p>Ordering Solutions for Swift and Efficient Transactions</p>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="col-md-4 manage-box sell-productP" style="width:350px; height:350px; margin-left:220px; margin-right:20px;">
+            <a href="@Url.Action("Index", "SellProduct")">
+                <div class="manage-text">
+                    <h2>Sell own Products</h2>
+                    <p>Turn Ideas into Sales: Your Products, Your Online Store</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+
+    <script>
+                $(function () {
+                    var successMessage = '@TempData["SuccessMessage"]';
+                    if (successMessage !== '') {
+                        alertify.success(successMessage);
+                    }
+                });
+    </script>
+}
+
+

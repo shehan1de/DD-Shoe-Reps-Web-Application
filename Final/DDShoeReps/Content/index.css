@@ -1,0 +1,118 @@
+﻿
+.jumbotron {
+    background: url('../image/main.jpg') center center no-repeat;
+    background-size: cover;
+    color: white;
+    margin-top: 100px;
+    /* width:1200px;*/
+    align-items: center;
+}
+
+
+.head-index {
+    font-weight: bold;
+    font-size: 50px;
+    margin-left: 100px;
+}
+        
+
+.lead {
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.btn btn-primary btn-lg {
+    margin-top: 50px;
+}
+
+.button {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-start;
+    width: 300px;
+    
+    margin-left: 100px;
+}
+
+    .button p {
+        margin-right: 10px;
+    }
+
+.register-btn {
+    background-color: black;
+    color: white;
+    
+}
+
+    .register-btn:hover {
+        background-color: #2d2c2c;
+    }
+
+.cat {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.category-box {
+    height: 300px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    color: white;
+    position: relative;
+    border-radius: 10px;
+}
+
+.kids-category {
+    background-image: url('../image/kids.jpg');
+    margin-right: 10px;
+    margin-left: 30px;
+}
+
+.male-category {
+    background-image: url('../image/male.jpg');
+    margin-right: 10px;
+}
+
+.female-category {
+    background-image: url('../image/female.jpg');
+}
+
+.category-text {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: 10px;
+}
+
+.category-box:hover .category-text {
+    opacity: 1;
+}
+
+.category-box a {
+    text-decoration: none;
+    color: white;
+}
+
+.category-box a:hover {
+    text-decoration: none;
+    color: white;
+    
+}
+
+.button-container {
+    text-align: center;
+}
+

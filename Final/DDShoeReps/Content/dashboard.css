@@ -1,0 +1,113 @@
+﻿.heading {
+    display: flexbox;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    width: auto;
+    height: 50px;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    color: black;
+   margin-left:50px;
+}
+.button{
+    margin-top:70px;
+}
+
+.dashboard-subheading {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right:50px;
+    margin-top:-40px;
+}
+
+.welcome-message {
+    margin-right: 10px;
+}
+
+.manage-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    color: white;
+    position: relative;
+    border-radius: 10px;
+    
+    margin-top:30px;
+}
+
+.manage-stock {
+    background-image: url('../image/3.jpg');
+   
+}
+
+.manage-user {
+    background-image: url('../image/4.jpg');
+ 
+}
+.order-product {
+    background-image: url('../image/5.jpg');
+    margin-right: 10px;
+    margin-left: 30px;
+}
+
+.sell-product {
+    background-image: url('../image/6.jpg');
+    margin-right: 10px;
+}
+.order-productP {
+    background-image: url('../image/7.jpg');
+    margin-right: 10px;
+    margin-left: 30px;
+}
+
+.sell-productP {
+    background-image: url('../image/8.jpg');
+    margin-right: 10px;
+}
+.sell-productO {
+    background-image: url('../image/11.jpg');
+   
+}
+
+
+.manage-text {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: 10px;
+}
+
+.manage-box:hover .manage-text {
+    opacity: 1;
+}
+
+.manage-box a {
+    text-decoration: none;
+    color: white;
+}
+
+    .manage-box a:hover {
+        text-decoration: none;
+        color: white;
+    }
+.manage-box:hover .manage-text,
+.manage-text {
+    opacity: 1;
+}

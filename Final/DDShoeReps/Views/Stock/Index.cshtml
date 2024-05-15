@@ -1,0 +1,98 @@
+﻿@model IEnumerable<DDShoeReps.Models.mvcStockModel>
+
+@{
+    ViewBag.Title = "Product List";
+    @Styles.Render("~/Content/productIndex.css")
+}
+
+
+
+<div class="tbl">
+    <div>
+        <a href="@Url.Action("AdminDashboard","Home")" class="btn btn-primary" style="background-color:black">Back to Dashboard</a>
+    </div>
+    <div>
+        <h2 class="productHeading">Product List</h2>
+    </div>
+    <div style="margin: 20px;">
+        <div style="float: left; margin-right: 20px;">
+            <input type="text" id="searchInput" />
+            <button id="searchButton" class="btn btn-primary">Search</button>
+        </div>
+        <div class="button" style="float: right; margin-left: 20px;">
+            <p><a href="@Url.Action("AddOrEdit", "Stock")" class="btn btn-primary btn-lg">Add Products </a></p>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+    <table class="table table-striped" id="productTable">
+        <thead class="table-heading">
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Description</th>
+                <th>Product Price</th>
+                <th>Quantity</th>
+                <th>Category Name</th>
+                <th>Product Image</th>
+
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.ProductID)</td>
+        <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+        <td>@Html.DisplayFor(modelItem => item.ProductDescription)</td>
+        <td>Rs. @Html.DisplayFor(modelItem => item.ProductPrice)</td>
+        <td>@Html.DisplayFor(modelItem => item.Quantity) pcs</td>
+        <td>@Html.DisplayFor(modelItem => item.CategoryName)</td>
+        <td>
+            <img src="~/image/@item.ProductImage" alt="Image" width="100" height="100"/>
+        </td>
+
+        <td>
+            <a href="@Url.Action("AddOrEdit", "Stock", new { id = item.ProductID })" class="btn btn-default">Edit</a>
+            <a onclick="Delete(@item.ProductID)" class="btn btn-default">Delete</a>
+        </td>
+    </tr>
+        }
+    </table>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessMessage"]';
+            if (successMessage !== '') {
+                alertify.success(successMessage);
+            }
+
+            $("#searchButton").click(function () {
+                handleSearch();
+            });
+
+            function handleSearch() {
+                var searchTerm = $("#searchInput").val().toLowerCase();
+
+                $("#productTable tbody tr").hide();
+
+
+                $("#productTable tbody tr").filter(function () {
+                    var productName = $(this).find("td:eq(1)").text().toLowerCase();
+                    var productID = $(this).find("td:eq(0)").text().toLowerCase();
+
+                    return productName.includes(searchTerm) || productID.includes(searchTerm);
+                }).show();
+            }
+        });
+
+        function Delete(id) {
+            alertify.confirm('', 'Are You Sure to Delete this Product ?', function () {
+                window.location.href = '@Url.Action("Delete","Stock")/' + id;
+            }, null);
+        }
+    </script>
+}

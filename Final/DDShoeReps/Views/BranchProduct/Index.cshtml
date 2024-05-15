@@ -1,0 +1,122 @@
+﻿@model IEnumerable<DDShoeReps.Models.mvcBranchProductModel>
+
+@{
+    ViewBag.Title = "Sell Product List";
+    @Styles.Render("~/Content/productIndex.css")
+}
+
+
+
+<div class="tbl">
+    <div>
+        <a href="@Url.Action("BranchDashboard","Home")" class="btn btn-primary" style="background-color:black">Back to Dashboard</a>
+    </div>
+    <h2 class="productHeading">Branch Product List</h2>
+    <div style="float: left; margin-right: 20px;">
+        <input type="text" id="searchInput" />
+        <button id="searchButton" class="btn btn-primary">Search</button>
+    </div>
+    <div class="button" style="float:right;">
+        <p><a href="@Url.Action("AddOrEdit", "BranchProduct")" class="btn btn-primary btn-lg">Add Products </a></p>
+
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                Product ID
+            </th>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Product Description
+            </th>
+            <th>
+                Product Price
+            </th>
+            <th>
+                Available Products
+            </th>
+            <th>
+                Product Image
+            </th>
+
+            <th>Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductDescription)
+        </td>
+        <td>
+            Rs. @Html.DisplayFor(modelItem => item.ProductPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AvailableQuantity) pcs
+        </td>
+
+        
+        <td>
+            <img src="~/image/@item.ProductImage" alt="Image" width="100" height="100" />
+        </td>
+        
+
+        <td>
+            <a href="@Url.Action("AddOrEdit", "BranchProduct", new { id=item.ProductID})" class="btn btn-default">Edit</a>
+            <a onclick="Delete(@item.ProductID)" class="btn btn-default">Delete</a>
+        </td>
+    </tr>
+        }
+
+    </table>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
+
+        function Delete(id) {
+            alertify.confirm('','Are You Sure to Delete this Product ?',function(){
+                window.location.href  = '@Url.Action("Delete","BranchProduct")/'+id;
+            },null );
+        }
+
+
+
+
+        $("#searchButton").click(function () {
+            handleSearch();
+        });
+
+        function handleSearch() {
+            var keyword = $("#searchInput").val().toLowerCase();
+
+            $(".table tbody tr").show();
+
+            $(".table tbody tr").filter(function () {
+                var rowText = $(this).text().toLowerCase();
+                var matchFound = rowText.includes(keyword);
+                $(this).toggle(matchFound);
+            });
+
+            var anyMatchFound = $(".table tbody tr:visible").length > 0;
+            $(".table thead tr").toggle(anyMatchFound);
+        }
+
+
+
+
+    </script>
+}

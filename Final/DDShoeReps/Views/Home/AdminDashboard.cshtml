@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Admin Dashboard";
+    @Styles.Render("~/Content/dashboard.css")
+    string userName = Session["UserName"] as string;
+}
+
+<div class="header-container">
+    <div class="welcome-message">
+        <h2 class="heading">Welcome Back @userName</h2>
+    </div>
+
+
+    <div class="button">
+        <p>
+            <a href="@Url.Action("Logout", "Home")" class="btn btn-primary btn-lg">Logout</a>
+        </p>
+    </div>
+</div>
+<p class="dashboard-subheading">Manage and oversee system activities with powerful administrative tools</p>
+
+
+<div class="container" style="text-align:center;">
+    <div class="row justify-content-center ">
+
+        <div class="col-md-4 manage-box manage-stock" style="width:350px; height:350px; margin-left:20px; margin-right:20px;">
+            <a href="@Url.Action("Index", "Stock")">
+                <div class="manage-text">
+                    <h2>Manage Stock</h2>
+                    <p>Efficiently oversee and control inventory levels for seamless product management</p>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="col-md-4 manage-box manage-user" style="width: 350px; height: 350px; margin-left: 20px; margin-right: 20px;">
+            <a href="@Url.Action("Index", "Employee")">
+                <div class="manage-text">
+                    <h2>Manage User</h2>
+                    <p>Administrate user accounts, permissions, and data with effective management tools</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 manage-box sell-productO" style="width: 350px; height: 350px; margin-left: 20px; margin-right: 20px;">
+            <a href="@Url.Action("Index", "StockOrder")">
+                <div class="manage-text">
+                    <h2>View Orders</h2>
+                    <p>Administrate user accounts, permissions, and data with effective management tools</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+@section scripts {
+
+    <script>
+                $(function () {
+                    var successMessage = '@TempData["SuccessMessage"]';
+                    if (successMessage !== '') {
+                        alertify.success(successMessage);
+                    }
+                });
+    </script>
+}

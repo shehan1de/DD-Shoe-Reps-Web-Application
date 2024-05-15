@@ -1,0 +1,63 @@
+﻿
+@{
+
+    ViewBag.Title = "Home Page";
+}
+@Styles.Render("~/Content/index.css")
+
+
+<div class="jumbotron">
+
+    <h class="head-index">Step into Luxury with DD Shoes</h>
+    <p class="lead">
+        Step into Fashion Excellence with Our Exclusive Shoe Collection, Elevating Your Style with Unique, Trendsetting Footwear Choices
+    </p>
+    <div class="button">
+        <p><a href="@Url.Action("Login", "Home")" class="btn btn-primary btn-lg">Login &raquo;</a></p>
+        <p><a href="@Url.Action("SignUp", "Employee")" class="btn btn-primary btn-lg register-btn">Register &raquo;</a></p>
+    </div>
+
+
+</div>
+
+<h2 class="cat">Shoe Categories</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <!-- Kids Category -->
+        <div class="col-md-4 category-box kids-category">
+            <a href="@Url.Action("Login", "Home")">
+                <div class="category-text">
+                    <h2>Kids</h2>
+                    <p>Explore our collection for kids</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Male Category -->
+        <div class="col-md-4 category-box male-category">
+            <a href="@Url.Action("Login", "Home")">
+                <div class="category-text">
+                    <h2>Male</h2>
+                    <p>Discover the latest styles for men</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Female Category -->
+        <div class="col-md-4 category-box female-category">
+            <a href="@Url.Action("Login", "Home")">
+                <div class="category-text">
+                    <h2>Female</h2>
+                    <p>Elevate your fashion with our women's collection</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<h2 class="cat">Shoe Products</h2>
+
+<div class="button-container">
+    <p><a href="@Url.Action("Login", "Home")" class="btn btn-primary btn-lg">Shop Now</a></p>
+</div>
+

@@ -1,0 +1,96 @@
+﻿@model DDShoeReps.Models.mvcStockModel
+@{
+    ViewBag.Title = "AddOrEdit";
+}
+
+<div class="form-body">
+    @using (Html.BeginForm("AddOrEdit", "Stock", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    <div class="form-horizontal">
+        @Html.HiddenFor(model => model.ProductID)
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductName, "Product Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductDescription, "Product Description", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.ProductDescription, new { @class = "form-control", rows = 4 })
+                @Html.ValidationMessageFor(model => model.ProductDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductPrice, "Product Price", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProductPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoryName, "Category Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.ProductImage))
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2"> Image</label>
+                <div class="col-md-10">
+                    <img src="~/image/@Model.ProductImage" alt="Existing Image" width="100" height="100" />
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductImage, "Product Image", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="postedFile" id="postedFile" class="form-control" />
+
+                @Html.ValidationMessageFor(model => model.ProductImage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        @if (!string.IsNullOrEmpty(Model.ProductImage))
+        {
+            @Html.HiddenFor(model => model.ProductImage)
+        }
+
+
+        <div class="form-group row">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-default">Reset</button>
+            </div>
+        </div>
+    </div>
+    }
+
+    <div class="form-group" style="margin-left: 260px;">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>
+
+@section script{
+    @Scripts.Render("~/bundles/jqueryval");
+}

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34301.259
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{6EA1C4AA-BA28-40BB-90BC-F7C2CE0CBBF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDShoeReps", "DDShoeReps\DDShoeReps.csproj", "{B1C26948-EBAD-47B6-9DEC-43A466B8E4AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EA1C4AA-BA28-40BB-90BC-F7C2CE0CBBF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA1C4AA-BA28-40BB-90BC-F7C2CE0CBBF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA1C4AA-BA28-40BB-90BC-F7C2CE0CBBF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA1C4AA-BA28-40BB-90BC-F7C2CE0CBBF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1C26948-EBAD-47B6-9DEC-43A466B8E4AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1C26948-EBAD-47B6-9DEC-43A466B8E4AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1C26948-EBAD-47B6-9DEC-43A466B8E4AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1C26948-EBAD-47B6-9DEC-43A466B8E4AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3B0DB04-E9FB-4A31-AF54-0568F74F0ED4}
+	EndGlobalSection
+EndGlobal
